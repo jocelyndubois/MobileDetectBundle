@@ -21,4 +21,13 @@ use Detection\MobileDetect;
  */
 class MobileDetector extends MobileDetect
 {
+	public function __construct($container)
+	{
+		$headers = $container->get("request")->headers;
+		$formattedHeaders = array();
+		foreach ($headers->all() as $key => $header) {
+			$formattedHeaders['HTTP_'.strtoupper($key)] = implode(';', $header);
+		}
+		\Mobile_Detect::__construct($formattedHeaders, $headers->get('User-Agent'));
+	}
 }
