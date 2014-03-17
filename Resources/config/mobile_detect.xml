@@ -10,8 +10,9 @@
     </parameters>
 
     <services>
-        <service id="mobile_detect.mobile_detector.default" class="%mobile_detect.mobile_detector.class%"/>
+        <service id="mobile_detect.mobile_detector.default" class="%mobile_detect.mobile_detector.class%">
             <argument type="service" id="service_container" />
+        </service>
 
         <service id="mobile_detect.device_view" class="%mobile_detect.device_view.class%">
             <argument type="service" id="service_container" />
